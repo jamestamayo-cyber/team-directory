@@ -9,16 +9,16 @@ import NotFound from './pages/NotFound';
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+      <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
         <Navbar />
-        <main className="mx-auto max-w-5xl px-6 py-8">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/users/:id" element={<UserDetails />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <main className="mx-auto max-w-6xl p-6">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/users/:id" element={<UserDetails />} />
+            <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </main>
       </div>
     </Router>

@@ -6,37 +6,37 @@ export default function UserCard({ id, name, email, company, role }) {
   const isFavorite = favorites.includes(id)
 
   return (
-    <article className="rounded border border-gray-200 p-5 dark:border-gray-700">
+    <article className="flex h-full flex-col rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition-shadow duration-200 hover:shadow-md dark:border-slate-700 dark:bg-slate-800">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h2 className="text-lg font-semibold">{name}</h2>
-          <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">{role}</p>
+          <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">{name}</h2>
+          <p className="mt-1 font-medium text-blue-700 dark:text-blue-300">{role}</p>
         </div>
         <button
           type="button"
           onClick={() => toggleFavorite(id)}
           aria-label={isFavorite ? `Remove ${name} from favorites` : `Add ${name} to favorites`}
           aria-pressed={isFavorite}
-          className="text-2xl leading-none"
+          className="rounded p-1 text-2xl leading-none text-amber-500 transition-colors hover:text-amber-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
         >
           {isFavorite ? '★' : '☆'}
         </button>
       </div>
-      <dl className="mt-4 space-y-1 text-sm">
-        <div>
-          <dt className="inline font-semibold">Email: </dt>
-          <dd className="inline">{email}</dd>
+      <dl className="mt-4 space-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+        <div className="flex gap-2">
+          <dt className="shrink-0 font-semibold">Email</dt>
+          <dd className="break-all">{email}</dd>
         </div>
-        <div>
-          <dt className="inline font-semibold">Company: </dt>
-          <dd className="inline">{company}</dd>
+        <div className="flex gap-2">
+          <dt className="shrink-0 font-semibold">Company</dt>
+          <dd>{company}</dd>
         </div>
       </dl>
       <Link
         to={`/users/${id}`}
-        className="mt-4 inline-block font-medium text-blue-700 underline dark:text-blue-300"
+        className="mt-auto inline-block pt-5 font-medium text-blue-700 underline underline-offset-4 transition-colors hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-200"
       >
-        View Details
+        View Details <span aria-hidden="true">→</span>
       </Link>
     </article>
   )
